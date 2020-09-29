@@ -30,4 +30,7 @@
     width: 60%;
     text-align: center;
 }
-
+.image{
+    width: 100%;
+    transform: translate(-50%,-50%);
+}
