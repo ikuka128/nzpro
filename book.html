@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>本のようなデザイン</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .book {
+            width: 60%;
+            height: 70%;
+            perspective: 1500px;
+            margin-bottom: 20px;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transition: transform 1s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .page-content {
+            padding: 20px;
+        }
+        .book-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+        }
+        .controls button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="book-container">
+            <div class="page" id="page2">
+                <div class="page-content">
+                    <h1>第2ページ</h1>
+                    <p>ここに第2ページの内容が入ります。</p>
+                </div>
+            </div>
+            <div class="page" id="page1">
+                <div class="page-content">
+                    <h1>第1ページ</h1>
+                    <p>ここに第1ページの内容が入ります。</p>
+                </div>
+            </div>
+            <div class="page" id="page0">
+                <div class="page-content">
+                    <h1>本のタイトル</h1>
+                    <p>著者名</p>
+                </div>
+            </div>
+            <!-- さらにページを追加 -->
+        </div>
+    </div>
+    <div class="controls">
+        <button onclick="prevPage()">前のページ</button>
+        <button onclick="nextPage()">次のページ</button>
+    </div>
+
+<script>
+        let currentPage = 0; 
+        let currentZindex = 0;
+        const totalPages = 3; // ページ数に応じて変更
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                document.getElementById(`page${currentPage}`).style.transform = 'rotateY(-180deg)';
+		//let element = document.getElementById(`page${currentPage}`)
+		//computedStyle = window.getComputedStyle(element);
+		//currentZindex = computedStyle.getPropertyValue('z-index');
+		//console.log(currentZindex)
+		        document.getElementById(`page${currentPage}`).style.zIndex = currentPage;
+		        currentPage++;
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                document.getElementById(`page${currentPage}`).style.transform = 'rotateY(0deg)';
+                document.getElementById(`page${currentPage}`).style.zIndex = totalPages - currentPage ;
+            }
+        }
+    </script>
+</body>
+</html>
