@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>�{�̂悤�ȃf�U�C��</title>
+    <title>本のような何か</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -55,34 +55,34 @@
         <div class="book-container">
             <div class="page" id="page2">
                 <div class="page-content">
-                    <h1>��2�y�[�W</h1>
-                    <p>�����ɑ�2�y�[�W�̓��e������܂��B</p>
+                    <h1>第2ページ</h1>
+                    <p>ここに第2ページの内容が入ります。</p>
                 </div>
             </div>
             <div class="page" id="page1">
                 <div class="page-content">
-                    <h1>��1�y�[�W</h1>
-                    <p>�����ɑ�1�y�[�W�̓��e������܂��B</p>
+                    <h1>第1ページ</h1>
+                    <p>ここに第1ページの内容が入ります。</p>
                 </div>
             </div>
             <div class="page" id="page0">
                 <div class="page-content">
-                    <h1>�{�̃^�C�g��</h1>
-                    <p>���Җ�</p>
+                    <h1>本のタイトル</h1>
+                    <p>著者名</p>
                 </div>
             </div>
-            <!-- ����Ƀy�[�W��ǉ� -->
+            <!-- さらにページを追加 -->
         </div>
     </div>
     <div class="controls">
-        <button onclick="prevPage()">�O�̃y�[�W</button>
-        <button onclick="nextPage()">���̃y�[�W</button>
+        <button onclick="prevPage()">前のページ</button>
+        <button onclick="nextPage()">次のページ</button>
     </div>
 
 <script>
         let currentPage = 0; 
         let currentZindex = 0;
-        const totalPages = 3; // �y�[�W���ɉ����ĕύX
+        const totalPages = 3; // ページ数に応じて変更
 
         function nextPage() {
             if (currentPage < totalPages) {
